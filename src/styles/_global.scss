@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  background: $veryLightGray;
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -23,4 +24,45 @@ a {
 
 ul {
   list-style: none;
+}
+
+// Button
+.button {
+  outline: 0;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+// Container
+.container {
+  margin: 0 auto;
+  max-width: 77.15rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// Flexbox
+.flex {
+  display: flex;
+
+  &-ai-c {
+    align-items: center;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+
+  &-ai-c {
+    align-items: center;
+  }
 }
