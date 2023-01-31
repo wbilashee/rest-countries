@@ -1,0 +1,60 @@
+.countries {
+  gap: 2.5rem;
+  align-items: stretch;
+  padding-left: 3.4375rem;
+  padding-right: 3.4375rem;
+  grid-template-columns: 1fr;
+
+  @include breakpoint-up(medium) {
+    gap: 4.35rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint-up(large) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    background: $white;
+    border-radius: $radius;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+
+    &__image {
+      height: 10rem;
+
+      @include breakpoint-up(large) {
+        height: 9.5rem;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+      }
+    }
+
+    &__body {
+      padding: 1.375rem 1.375rem 2.25rem;
+
+      h4 {
+        font-size: 1.0625rem;
+        margin-bottom: 0.875rem;
+      }
+
+      p {
+        color: $darkBlue;
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+
+        span {
+          color: $veryDarkBlue;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

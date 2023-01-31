@@ -39,6 +39,11 @@ ul {
   max-width: 77.15rem;
   padding-left: 1rem;
   padding-right: 1rem;
+
+  &--py {
+    padding-top: 2.85rem;
+    padding-bottom: 2.85rem;
+  }
 }
 
 // Flexbox
