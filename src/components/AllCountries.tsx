@@ -1,8 +1,8 @@
 import React from "react";
-import { useGlobalContext } from "../context";
 import Card from "./Card";
+import { useGlobalContext } from "../context";
 
-const Countries: React.FC = () => {
+const AllCountries: React.FC = () => {
   const { countries } = useGlobalContext();
   return (
     <section className="countries grid container container--py">
@@ -13,4 +13,4 @@ const Countries: React.FC = () => {
   );
 };
 
-export default Countries;
+export default AllCountries;

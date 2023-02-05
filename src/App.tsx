@@ -1,11 +1,17 @@
 import Header from "./components/Header";
-import Countries from "./components/Countries";
+import Search from "./components/Search";
+import { useGlobalContext } from "./context";
+import AllCountries from "./components/AllCountries";
+import FilteredCountries from "./components/FilteredCountries";
 
-const App : React.FC= () => {
+const App: React.FC = () => {
+  const { searchTerm } = useGlobalContext();
+
   return (
     <>
       <Header />
-      <Countries />
+      <Search />
+      {searchTerm.length > 0 ? <FilteredCountries /> : <AllCountries />}
     </>
   );
 };

@@ -17,6 +17,9 @@ type Props = {
 const AppProvider: React.FC<Props> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [countries, setCountries] = useState<Country[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [filtered, setFiltered] = useState<Country[]>([]);
+  const [foundFilter, setFoundFilter] = useState<boolean>(true);
 
   const fetchCountries = useCallback(async () => {
     setIsLoading(true);
@@ -45,6 +48,26 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     }
   }, []);
 
+  const searchCountries = (searchValue: string) => {
+    setSearchTerm(searchValue);
+    if (searchTerm) {
+      setFiltered(
+        countries.filter((country) =>
+          Object.values(country)
+            .join("")
+            .toLowerCase()
+            .includes(searchValue.toLowerCase())
+        )
+      );
+      setFoundFilter(true);
+      if (filtered.length <= 0) {
+        setFoundFilter(false);
+      }
+    } else {
+      setFiltered(countries);
+    }
+  };
+
   useEffect(() => {
     fetchCountries();
   }, [fetchCountries]);
@@ -56,6 +79,13 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         setIsLoading,
         countries,
         setCountries,
+        searchTerm,
+        setSearchTerm,
+        filtered,
+        setFiltered,
+        foundFilter,
+        setFoundFilter,
+        searchCountries,
       }}
     >
       {children}
