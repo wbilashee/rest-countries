@@ -1,0 +1,122 @@
+.form {
+  padding-top: 1.5rem;
+  align-items: stretch;
+  flex-direction: column;
+
+  @include breakpoint-up(medium) {
+    padding-top: 2.85rem;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &__input,
+  &__filter,
+  .region-list {
+    border-radius: $radius;
+    background-color: $white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.25rem 0;
+    -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.25rem 0;
+  }
+
+  &__search {
+    position: relative;
+    margin-bottom: 2.5rem;
+
+    @include breakpoint-up(medium) {
+      margin-bottom: 0;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0.9375rem;
+      left: 1.875rem;
+      color: $darkGray;
+      font-size: 1.1875rem;
+
+      @include breakpoint-up(medium) {
+        top: 1rem;
+        left: 1.75rem;
+        font-size: 1.25rem;
+      }
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 0.75rem;
+      font-family: inherit;
+      text-indent: 3.375rem;
+      padding: 1.0625rem 1.25rem;
+
+      @include breakpoint-up(medium) {
+        width: 28.25rem;
+        font-size: revert;
+        text-indent: 3.125rem;
+      }
+
+      &::placeholder {
+        color: $darkGray;
+      }
+    }
+  }
+
+  &__filter {
+    height: 30%;
+    width: 12.5rem;
+    position: relative;
+    font-size: 0.75rem;
+
+    @include breakpoint-up(medium) {
+      width: 11.85rem;
+      font-size: 0.825rem;
+    }
+
+    &__summary {
+      cursor: pointer;
+      padding: 1rem 1.45rem;
+
+      @include breakpoint-up(medium) {
+        padding: 1.0625rem 1.15rem;
+      }
+    }
+
+    &__icon {
+      font-size: 0.5rem;
+
+      @include breakpoint-up(medium) {
+        font-size: 0.625rem;
+      }
+
+      &.visible {
+        transform: rotate(-180deg);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .region-list {
+      width: 100%;
+      display: flex;
+      max-width: 100%;
+      max-height: 300px;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      list-style: none;
+      overflow-y: auto;
+      line-height: 1.75rem;
+      border-radius: $radius;
+      flex-direction: column;
+      padding: 0.5rem 1.5rem;
+
+      @include breakpoint-up(medium){
+        padding: 0.5rem 1.25rem;
+      }
+
+      li {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}

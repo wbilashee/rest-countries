@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Search from "./components/Search";
+import Form from "./components/Form";
 import { useGlobalContext } from "./context";
 import AllCountries from "./components/AllCountries";
 import FilteredCountries from "./components/FilteredCountries";
@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <Search />
+      <Form />
       {searchTerm.length > 0 ? <FilteredCountries /> : <AllCountries />}
     </>
   );
