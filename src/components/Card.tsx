@@ -1,5 +1,6 @@
 import React from "react";
 import { Country } from "../model";
+import { Link } from "react-router-dom";
 
 const Card: React.FC<Country> = ({
   flag,
@@ -9,7 +10,7 @@ const Card: React.FC<Country> = ({
   capital,
 }) => {
   return (
-    <article className="card">
+    <Link to={`/${name}`} className="card">
       <div className="card__image">
         <img src={flag} alt={name} />
       </div>
@@ -28,7 +29,7 @@ const Card: React.FC<Country> = ({
           {capital}
         </p>
       </div>
-    </article>
+    </Link>
   );
 };
 

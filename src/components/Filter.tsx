@@ -26,12 +26,12 @@ const Filter: React.FC = () => {
 
   const fetchRegion = async (region: any) => {
     if (region === "all") {
-      const url = `https://restcountries.com/v2/all`;
+      const url = `https://restcountries.com/v3.1/all`;
       const response = await fetch(url);
       const data = await response.json();
       setCountries(data);
     } else {
-      const url = `https://restcountries.com/v2/region/${region}`;
+      const url = `https://restcountries.com/v3.1/region/${region}`;
       const response = await fetch(url);
       const data = await response.json();
       setCountries(data);

@@ -1,18 +1,17 @@
+import Home from "./components/Home";
 import Header from "./components/Header";
-import Form from "./components/Form";
-import { useGlobalContext } from "./context";
-import AllCountries from "./components/AllCountries";
-import FilteredCountries from "./components/FilteredCountries";
+import Detail from "./components/Detail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App: React.FC = () => {
-  const { searchTerm } = useGlobalContext();
-
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <Form />
-      {searchTerm.length > 0 ? <FilteredCountries /> : <AllCountries />}
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:name" element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
